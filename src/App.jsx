@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
-const fondoHero = getAssetUrl("fondo-hero (1).jpg");
-
-
+import fondoHero from "./assets/fondo-hero (1).jpg";
 const style = `
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;800&display=swap');
 
