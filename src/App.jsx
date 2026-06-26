@@ -983,63 +983,103 @@ export default function App() {
         </div>
       )}
 
-      {/* ── HERO ── */}
-      <section
-        className="hero"
-        style={{
-          backgroundImage: `
-            linear-gradient(
-              rgba(255,0,0,0.5),
-              rgba(255,0,0,0.5)
-            ),
-            url(${fondoHero})
-          `,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat"
-        }}
-      >
-        <div className="hero-inner">
-          <div className="animate-up">
-            <div className="hero-badge">
-              🎓 Universidad Autónoma
+  {/* ── HERO ── */}
+  <section
+    className="hero"
+    style={{
+      background: "red",
+      minHeight: "100vh"
+    }}
+  >
+    <div className="hero-inner">
+      <div className="animate-up">
+        <div className="hero-badge">
+          🎓 Universidad Autónoma
+        </div>
+
+        <h1 style={{ color: "white" }}>
+          <em style={{ color: "yellow" }}>Conectados:</em> Alfabetización Digital
+          <br />
+          para la Comunidad
+        </h1>
+
+        <p
+          className="hero-desc"
+          style={{ color: "white" }}
+        >
+          Un proyecto educativo hecho para personas reales en la Región del Maule.
+          Aprendemos juntos a usar internet con seguridad, sin tecnicismos, sin miedo.
+        </p>
+
+        <div className="hero-btns">
+          <a href="#temas" className="btn-primary">
+            Aprender ahora {icons.arrowRight}
+          </a>
+
+          <a href="#comunidad" className="btn-secondary">
+            {icons.whatsapp} Unirse a WhatsApp
+          </a>
+        </div>
+
+        <div className="hero-stats">
+          <div>
+            <div
+              className="hero-stat-num"
+              style={{ color: "white" }}
+            >
+              +1.200
             </div>
-            <h1>
-              <em>Conectados:</em> Alfabetización Digital<br />para la Comunidad
-            </h1>
-            <p className="hero-desc">
-              Un proyecto educativo hecho para personas reales en la Región del Maule.
-              Aprendemos juntos a usar internet con seguridad, sin tecnicismos, sin miedo.
-            </p>
-            <div className="hero-btns">
-              <a href="#temas" className="btn-primary">
-                Aprender ahora {icons.arrowRight}
-              </a>
-              <a href="#comunidad" className="btn-secondary">
-                {icons.whatsapp} Unirse a WhatsApp
-              </a>
-            </div>
-            <div className="hero-stats">
-              <div>
-                <div className="hero-stat-num">+1.200</div>
-                <div className="hero-stat-label">personas alcanzadas<br/>en el Maule</div>
-              </div>
-              <div>
-                <div className="hero-stat-num">4</div>
-                <div className="hero-stat-label">plataformas<br/>transmedia</div>
-              </div>
-              <div>
-                <div className="hero-stat-num">6</div>
-                <div className="hero-stat-label">temas de<br/>alfabetización</div>
-              </div>
+            <div
+              className="hero-stat-label"
+              style={{ color: "white" }}
+            >
+              personas alcanzadas
+              <br />
+              en el Maule
             </div>
           </div>
-          <div className="hero-visual animate-in">
-            {/* <HeroIllustration /> */}
-            <HeroIllustration />
+
+          <div>
+            <div
+              className="hero-stat-num"
+              style={{ color: "white" }}
+            >
+              4
+            </div>
+            <div
+              className="hero-stat-label"
+              style={{ color: "white" }}
+            >
+              plataformas
+              <br />
+              transmedia
+            </div>
+          </div>
+
+          <div>
+            <div
+              className="hero-stat-num"
+              style={{ color: "white" }}
+            >
+              6
+            </div>
+            <div
+              className="hero-stat-label"
+              style={{ color: "white" }}
+            >
+              temas de
+              <br />
+              alfabetización
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      <div className="hero-visual animate-in">
+        {/* <HeroIllustration /> */}
+      </div>
+    </div>
+  </section>
 
       {/* ── ¿POR QUÉ? ── */}
       <section className="section section-alt">
