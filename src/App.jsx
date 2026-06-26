@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import fondoHero from "./assets/fondo-hero.jpg";
+import fondoHero from "./assets/fondo-hero (1).jpg";
 
 // ── FUNCIÓN PARA CARGAR IMÁGENES CORRECTAMENTE EN VITE ──
 const getAssetUrl = (name) => {
