@@ -36,6 +36,15 @@ const imagenesGaleria = {
   tima: getAssetUrl("pexels-tima-miroshnichenko-5591205.jpg")
 };
 
+function TestimonioCardExtenso({ paragraphs, highlightQuote, name, meta, avatarLetter, imgSrc }) {
+  return (
+    <div className="testimonio-card">
+      <div className="testimonio-img-wrap">
+        {/* ASÍ DEBE QUEDAR LA ETIQUETA EN EL COMPONENTE COMPLEMENTARIO */}
+        <img src={imgSrc} alt={`Testimonio de ${name}`} /> 
+      </div>
+      {/* ... resto del código del componente ... */}
+
 // --- FIN DEL FRAGMENTO ---
 const style = `
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;800&display=swap');
@@ -1317,5 +1326,3 @@ export default function App() {
     </>
   );
 }
-
-<img src={testimonio.imgSrc} alt={testimonio.name} />
