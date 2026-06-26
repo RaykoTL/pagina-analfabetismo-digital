@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import fondoHero from "./assets/fondo-hero (1).jpg";
+const fondoHero = getAssetUrl("fondo-hero (1).jpg");
 
 // ── FUNCIÓN PARA CARGAR IMÁGENES CORRECTAMENTE EN VITE ──
 const getAssetUrl = (name) => {
@@ -993,7 +993,16 @@ export default function App() {
       )}
 
       {/* ── HERO ── */}
-      <section className="hero">
+      <section
+        className="hero"
+        style={{
+          backgroundImage: `url(${fondoHero})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          minHeight: "100vh"
+        }}
+      >
         <div className="hero-inner">
           <div className="animate-up">
             <div className="hero-badge">
