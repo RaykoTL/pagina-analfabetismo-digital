@@ -131,7 +131,7 @@ const style = `
         rgba(0,0,0,0.55),
         rgba(0,0,0,0.55)
       ),
-      url("https://github.com/RaykoTL/pagina-analfabetismo-digital/blob/main/fondo-hero.jpg");
+      url("/fondo-hero.jpg");
 
     background-size: cover;
     background-position: center;
