@@ -1,5 +1,29 @@
 import { useState, useEffect } from "react";
 
+// Importa las imágenes como si fueran módulos de código
+import imgAbuela from './assets/abuela belen.jpeg';
+import imgAbuelo from './assets/abuelo belen.jpeg';
+import imgKampus from './assets/pexels-kampus-8185900.jpg';
+import imgSilver1 from './assets/pexels-silverkblack-36764578.jpg';
+import imgSilver2 from './assets/pexels-silverkblack-36764586.jpg';
+import imgTima from './assets/pexels-tima-miroshnichenko-5591205.jpg';
+
+// Ahora las usas en tu estructura sin comillas, directo la variable:
+const testimonios = [
+  {
+    name: "Liliana (Gloria)",
+    imgSrc: imgAbuela, // <--- Fíjate que va sin comillas
+    avatarLetter: "L",
+    paragraphs: ["..."]
+  },
+  {
+    name: "Francisco",
+    imgSrc: imgAbuelo, // <--- Sin comillas
+    avatarLetter: "F",
+    paragraphs: ["..."]
+  }
+];
+
 const style = `
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;800&display=swap');
 
