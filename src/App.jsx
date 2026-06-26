@@ -417,7 +417,7 @@ const style = `
   .podcast-card.playing .waveform-bar { background:var(--verde-claro); }
   .podcast-dur { font-size:0.78rem; color:#9CA3AF; font-weight:500; white-space:nowrap; }
 
-  /* TESTIMONIOS */
+  /* TESTIMONIOS EXTENSOS */
   .testimonios-section {
     background: linear-gradient(160deg, #1E3A5F 0%, #163050 60%, #0f2540 100%);
     padding: 6rem 2rem;
@@ -441,14 +441,16 @@ const style = `
   .testimonios-section .section-tag { color: var(--verde-claro); }
   .testimonios-section .section-title { color: #fff; }
   .testimonios-section .section-desc { color: rgba(255,255,255,0.7); }
+  
   .testimonios-grid {
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:2rem;
+    gap:2.5rem;
     margin-top:3rem;
+    align-items: start;
   }
   .testimonio-card {
-    background: rgba(255,255,255,0.07);
+    background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.12);
     border-radius: 20px;
     overflow: hidden;
@@ -462,55 +464,44 @@ const style = `
     border-color: rgba(61,154,96,0.5);
     box-shadow: 0 20px 48px rgba(0,0,0,0.3);
   }
+  
+  /* Contenedor adaptado para ver fotos completas */
   .testimonio-img-wrap {
     width:100%;
-    aspect-ratio: 16/10;
+    height: 380px;
     overflow:hidden;
     position:relative;
-    background: #0f2540;
+    background: #112237;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
   }
   .testimonio-img-wrap img {
     width:100%;
     height:100%;
-    object-fit:cover;
-    object-position:center top;
+    object-fit: contain; /* Foto completa sin recortar */
     display:block;
     transition: transform 0.5s ease;
   }
-  .testimonio-card:hover .testimonio-img-wrap img { transform: scale(1.04); }
-  .testimonio-img-placeholder {
-    width:100%;
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:1rem;
-    background: linear-gradient(135deg, #0f2540, #163050);
-  }
-  .testimonio-img-placeholder-icon {
-    font-size:4rem;
-    animation: float 3s ease-in-out infinite;
-  }
-  .testimonio-img-placeholder p {
-    font-size:0.8rem;
-    color:rgba(255,255,255,0.4);
-    text-align:center;
-    padding:0 1rem;
-  }
-  .testimonio-body { padding:1.75rem; flex:1; display:flex; flex-direction:column; gap:1rem; }
-  .testimonio-quote {
-    font-size:1.05rem;
-    color:rgba(255,255,255,0.9);
+  .testimonio-card:hover .testimonio-img-wrap img { transform: scale(1.02); }
+  
+  .testimonio-body { padding: 2rem; flex:1; display:flex; flex-direction:column; gap:1.25rem; }
+  .testimonio-paragraphs { display: flex; flex-direction: column; gap: 0.85rem; }
+  .testimonio-text {
+    font-size:0.98rem;
+    color:rgba(255,255,255,0.85);
     line-height:1.7;
-    font-style:italic;
-    position:relative;
-    padding-left:1.25rem;
-    border-left:3px solid var(--verde);
   }
-  .testimonio-footer { display:flex; align-items:center; gap:0.75rem; margin-top:auto; }
+  .testimonio-destacado {
+    font-size:1.1rem;
+    color: var(--verde-claro);
+    font-weight: 600;
+    line-height: 1.5;
+    border-left:3px solid var(--verde-claro);
+    padding-left: 1rem;
+    margin: 0.5rem 0;
+  }
+  .testimonio-footer { display:flex; align-items:center; gap:0.75rem; margin-top:1rem; padding-top:1.25rem; border-top: 1px solid rgba(255,255,255,0.08); }
   .testimonio-avatar {
-    width:40px;height:40px;
+    width:42px;height:42px;
     border-radius:50%;
     background:var(--verde);
     display:flex;
@@ -518,11 +509,11 @@ const style = `
     justify-content:center;
     color:#fff;
     font-weight:700;
-    font-size:1rem;
+    font-size:1.05rem;
     flex-shrink:0;
   }
-  .testimonio-name { font-family:'Poppins',sans-serif; font-weight:600; color:#fff; font-size:0.9rem; }
-  .testimonio-meta { font-size:0.75rem; color:rgba(255,255,255,0.5); margin-top:0.1rem; }
+  .testimonio-name { font-family:'Poppins',sans-serif; font-weight:600; color:#fff; font-size:0.95rem; }
+  .testimonio-meta { font-size:0.78rem; color:rgba(255,255,255,0.5); margin-top:0.1rem; }
   .testimonio-stars { display:flex; gap:2px; margin-left:auto; }
   .testimonio-stars span { color:#FBBF24; font-size:0.85rem; }
 
@@ -743,6 +734,7 @@ const style = `
     .transmedia-timeline::before { display:none; }
     .transmedia-timeline { grid-template-columns:repeat(2,1fr); }
     .footer-top { grid-template-columns:1fr 1fr; }
+    .testimonio-img-wrap { height: 320px; }
   }
   @media(max-width:640px) {
     .section { padding:4rem 1.25rem; }
@@ -755,51 +747,36 @@ const style = `
     .footer-top { grid-template-columns:1fr; gap:2rem; }
     .wa-section { padding:2rem; }
     .hero-stats { flex-wrap:wrap; gap:1.25rem; }
+    .testimonio-img-wrap { height: 260px; }
   }
 `;
 
-// ── LOGO SVG (inline, basado en el ícono de abuelitos) ─────────────────────
+// ── LOGO SVG ──────────────────────────────────────────────────────────────
 function LogoIcon({ size = 32 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Círculo exterior */}
       <circle cx="50" cy="50" r="48" fill="white" stroke="#1E3A5F" strokeWidth="3"/>
-      {/* WiFi arriba */}
-      <path d="M50 22 Q50 22 50 22" fill="none"/>
       <path d="M43 28 Q50 21 57 28" stroke="#3D9A60" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
       <path d="M39 32 Q50 17 61 32" stroke="#3D9A60" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
       <circle cx="50" cy="33" r="2.5" fill="#3D9A60"/>
-      {/* Abuelo izquierda - cabeza */}
       <circle cx="35" cy="52" r="10" fill="#FDDCB5"/>
-      {/* Calvicie */}
       <ellipse cx="35" cy="44" rx="8" ry="5" fill="#E8C49A"/>
-      {/* Anteojos abuelo */}
       <circle cx="31" cy="53" r="3.5" stroke="#1E3A5F" strokeWidth="1.5" fill="none"/>
       <circle cx="39" cy="53" r="3.5" stroke="#1E3A5F" strokeWidth="1.5" fill="none"/>
       <line x1="34.5" y1="53" x2="35.5" y2="53" stroke="#1E3A5F" strokeWidth="1.5"/>
-      {/* Sonrisa abuelo */}
       <path d="M31 57 Q35 60 39 57" stroke="#C0785A" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
-      {/* Pulgar arriba abuelo */}
       <path d="M20 62 Q18 58 22 57 L26 57 Q26 54 29 54 L29 64 L20 64 Z" fill="#FDDCB5"/>
-      {/* Cuerpo abuelo */}
       <rect x="27" y="62" width="16" height="14" rx="4" fill="#1E3A5F"/>
-      {/* Abuela derecha - cabeza */}
       <circle cx="65" cy="52" r="10" fill="#FDDCB5"/>
-      {/* Moño abuela */}
       <ellipse cx="65" cy="43" rx="6" ry="4" fill="#B0BEC5"/>
       <circle cx="65" cy="40" r="3" fill="#CFD8DC"/>
-      {/* Anteojos abuela */}
       <circle cx="61" cy="53" r="3.5" stroke="#1E3A5F" strokeWidth="1.5" fill="none"/>
       <circle cx="69" cy="53" r="3.5" stroke="#1E3A5F" strokeWidth="1.5" fill="none"/>
       <line x1="64.5" y1="53" x2="65.5" y2="53" stroke="#1E3A5F" strokeWidth="1.5"/>
-      {/* Sonrisa abuela */}
       <path d="M61 57 Q65 60 69 57" stroke="#C0785A" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
-      {/* Teléfono abuela */}
       <rect x="71" y="55" width="9" height="14" rx="2" fill="#1a2840"/>
       <rect x="72.5" y="57" width="6" height="9" rx="1" fill="#4A90E2"/>
-      {/* Cuerpo abuela */}
       <rect x="57" y="62" width="16" height="14" rx="4" fill="#3D9A60"/>
-      {/* Arco verde de fondo */}
       <path d="M28 72 Q50 85 72 72" stroke="#3D9A60" strokeWidth="3" strokeLinecap="round" fill="none"/>
     </svg>
   );
@@ -811,11 +788,9 @@ function HeroIllustration() {
     <svg viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:'100%',maxWidth:440, animation:'float 4s ease-in-out infinite'}}>
       <circle cx="240" cy="240" r="200" fill="#e8f7ee" />
       <circle cx="240" cy="240" r="160" fill="#d1f0dc" opacity="0.5" />
-      {/* Phone */}
       <rect x="185" y="140" width="110" height="190" rx="16" fill="#1E3A5F" />
       <rect x="192" y="150" width="96" height="165" rx="10" fill="#F8FAFC" />
       <rect x="225" y="137" width="30" height="5" rx="3" fill="#3D9A60" />
-      {/* Screen */}
       <rect x="202" y="162" width="76" height="8" rx="4" fill="#E5E7EB" />
       <rect x="202" y="176" width="55" height="6" rx="3" fill="#bbf7d0" />
       <rect x="202" y="192" width="76" height="40" rx="6" fill="#f0fdf4" />
@@ -828,7 +803,6 @@ function HeroIllustration() {
       <rect x="225" y="256" width="28" height="4" rx="2" fill="#E5E7EB" />
       <rect x="202" y="288" width="76" height="18" rx="9" fill="#3D9A60" />
       <rect x="218" y="293" width="44" height="7" rx="3" fill="#fff" />
-      {/* Floating cards */}
       <rect x="60" y="160" width="100" height="60" rx="12" fill="#fff" style={{filter:'drop-shadow(0 4px 12px rgba(61,154,96,0.15))'}} />
       <rect x="72" y="173" width="10" height="10" rx="3" fill="#3D9A60" />
       <rect x="87" y="174" width="55" height="5" rx="3" fill="#E5E7EB" />
@@ -840,13 +814,11 @@ function HeroIllustration() {
       <rect x="347" y="214" width="55" height="5" rx="3" fill="#E5E7EB" />
       <rect x="332" y="232" width="82" height="24" rx="6" fill="#EFF6FF" />
       <rect x="338" y="238" width="55" height="4" rx="2" fill="#BFDBFE" />
-      {/* WiFi dots */}
       <circle cx="350" cy="140" r="6" fill="#3D9A60" />
       <circle cx="350" cy="140" r="14" stroke="#3D9A60" strokeWidth="1.5" opacity="0.3" fill="none" />
       <circle cx="350" cy="140" r="22" stroke="#3D9A60" strokeWidth="1" opacity="0.15" fill="none" />
       <circle cx="110" cy="130" r="5" fill="#3D9A60" />
       <circle cx="380" cy="310" r="5" fill="#4A90E2" />
-      {/* People */}
       <ellipse cx="180" cy="370" rx="22" ry="22" fill="#bbf7d0" />
       <ellipse cx="180" cy="355" rx="10" ry="10" fill="#6EE7B7" />
       <ellipse cx="240" cy="365" rx="22" ry="22" fill="#BBF7D0" />
@@ -893,22 +865,26 @@ function Waveform({ playing }) {
   );
 }
 
-// Componente de testimonio con imagen real o placeholder ilustrado
-function TestimonioCard({ quote, name, meta, avatarLetter, imgSrc, imgAlt, imgIcon, imgDesc }) {
+// Componente estructurado para testimonios extensos y con fotos enteras
+function TestimonioCardExtenso({ paragraphs, highlightQuote, name, meta, avatarLetter, imgSrc }) {
   return (
     <div className="testimonio-card">
       <div className="testimonio-img-wrap">
-        {imgSrc ? (
-          <img src={imgSrc} alt={imgAlt || name} />
-        ) : (
-          <div className="testimonio-img-placeholder">
-            <div className="testimonio-img-placeholder-icon">{imgIcon}</div>
-            <p>{imgDesc}</p>
-          </div>
-        )}
+        <img src={imgSrc} alt={`Testimonio de ${name}`} />
       </div>
       <div className="testimonio-body">
-        <p className="testimonio-quote">"{quote}"</p>
+        <div className="testimonio-paragraphs">
+          {paragraphs.map((p, idx) => (
+            <p key={idx} className="testimonio-text">{p}</p>
+          ))}
+        </div>
+        
+        {highlightQuote && (
+          <div className="testimonio-destacado">
+            “{highlightQuote}”
+          </div>
+        )}
+
         <div className="testimonio-footer">
           <div className="testimonio-avatar">{avatarLetter}</div>
           <div>
@@ -965,6 +941,20 @@ export default function App() {
     { icon: icons.radio, title: "Cápsulas Radiales", desc: "Microprogramas de 10 minutos emitidos en radios locales del Maule, con consejos prácticos narrados de forma accesible." },
     { icon: icons.whatsapp, title: "Comunidad WhatsApp", desc: "Grupo activo de difusión con tips semanales, alertas de estafas y respuesta a preguntas de la comunidad." },
     { icon: icons.web, title: "Sitio Web", desc: "Plataforma central con recursos descargables, guías en video, episodios de radio y acceso a todos los contenidos." },
+  ];
+
+  // Datos organizados de los testimonios extensos provistos por el usuario
+  const testimonioFrancisco = [
+    "Francisco trabajó cuarenta años como operario metalúrgico. Hoy, jubilado y solo la mayor parte de la semana, los trámites que antes resolvía en una ventanilla ahora exigen internet. 'Me tardé cuarenta minutos en encontrar dónde hacer clic. Y cuando creía que estaba en el lugar correcto, me pedía una clave que nunca había creado.'",
+    "Lo que más le pesa no es la dificultad, es la desconfianza constante. Recibió un correo que parecía del Registro Civil pidiendo renovar su carnet. 'Lo habría abierto. Habría puesto mis datos. Fue mi nieta la que me avisó que era una estafa.' En el grupo de WhatsApp de sus amigos circulan noticias a diario. 'Uno no sabe si es verdad o mentira. Me ha pasado de reenviar cosas falsas sin querer.'",
+    "Lo que más le duele, dice, no es la dificultad técnica. Es sentir que el mundo asume que uno sabe. 'Nadie te enseña. Te dicen \"descárgate la aplicación\", \"entra al portal\", \"activa la clave dinámica\". Y si no sabes, el problema eres tú. Pero a mí nadie me enseñó.'"
+  ];
+
+  const testimonioLiliana = [
+    "Liliana tiene 70 años y vive sola con su esposo, desde que sus tres hijos se fueron a otras ciudades, aprendió a usar WhatsApp para no perderlos de vista. 'Primero mensajes, después audios, después fotos. Para mí fue un logro enorme.' Durante un tiempo, eso era suficiente. Pero sus hijos fueron migrando a otras aplicaciones, a plataformas que Gloria nunca aprendió a usar. 'Me dicen \"subí una historia a Facebook\". Yo no sé qué es eso así que la conversación se corta.'",
+    "Entonces WhatsApp quedó siendo el único canal. Y por ese mismo canal le llegó de todo. Sus vecinas, sus amigas del grupo de la iglesia, sus primas, todas mandando videos, cadenas, noticias. 'Uno confía, porque son personas que uno quiere. Si me lo manda mi vecina, ¿por qué voy a dudar?'",
+    "'Una vez reenvié un video de un médico famoso diciendo que cierta vacuna hacía daño. Mi hijo me llamó enojado. Me dijo que ese médico nunca había dicho eso, que la voz y la cara eran falsas, hechas con computador. No lo podía creer.'",
+    "Desde entonces vive con una angustia nueva. 'Ahora no sé en qué creer. Antes dudaba de pocas cosas, ahora dudo de todo.' Y lo más difícil es que ya no puede pedirle ayuda a sus hijos sin sentir que les está dando trabajo. 'Ellos están ocupados. No los puedo llamar cada vez que me llega un video a preguntar si es mentira o verdad.'"
   ];
 
   return (
@@ -1145,32 +1135,32 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── TESTIMONIOS ── */}
+      {/* ── APARTADO EXTENSO DE TESTIMONIOS ── */}
       <section className="testimonios-section" id="testimonios">
         <div className="testimonios-inner">
-          <div className="section-tag">Testimonios</div>
-          <h2 className="section-title">Lo que dicen quienes aprendieron</h2>
-          <p className="section-desc">Personas reales del Maule que cambiaron su relación con la tecnología.</p>
+          <div className="section-tag">Testimonios Reales</div>
+          <h2 className="section-title">Historias de nuestra comunidad</h2>
+          <p className="section-desc">El impacto humano detrás de la transformación digital. Testimonios íntimos sobre el esfuerzo y los desafíos de conectarse hoy en día.</p>
+          
           <div className="testimonios-grid">
-            <TestimonioCard
-              imgSrc="/testimonio-don-roberto.jpg"
-              imgAlt="Don Roberto con su teléfono"
-              imgIcon="📱"
-              imgDesc="Sube aquí la foto de Don Roberto con el teléfono"
-              quote="Yo pensé que nunca iba a poder hacer mis trámites solo. Ahora hago todo desde el teléfono — el SII, la clave única, hasta el FONASA. Mi hija no lo puede creer."
-              name="Roberto, 71 años"
-              meta="Talca · Jubilado"
-              avatarLetter="R"
+            {/* Testimonio 1: Francisco (Abuelo con Teléfono) */}
+            <TestimonioCardExtenso
+              imgSrc="abuelo belen.jpeg"
+              paragraphs={testimonioFrancisco}
+              highlightQuote="Uno siente vergüenza de preguntar, Porque parece que todos saben menos tú"
+              name="Francisco"
+              meta="Exoperario metalúrgico · Jubilado"
+              avatarLetter="F"
             />
-            <TestimonioCard
-              imgSrc="/testimonio-dona-carmen.jpg"
-              imgAlt="Doña Carmen con su computador"
-              imgIcon="💻"
-              imgDesc="Sube aquí la foto de Doña Carmen con el Mac"
-              quote="Antes le tenía miedo al computador. Una vecina me contó de este grupo y desde entonces aprendo algo nuevo cada semana. Ya sé reconocer las estafas y eso me da mucha tranquilidad."
-              name="Carmen, 67 años"
-              meta="Curicó · Dueña de casa"
-              avatarLetter="C"
+            
+            {/* Testimonio 2: Liliana (Abuela con Mac) */}
+            <TestimonioCardExtenso
+              imgSrc="abuela belen.jpeg"
+              paragraphs={testimonioLiliana}
+              highlightQuote="Ahora no sé en qué creer. Antes dudaba de pocas cosas, ahora dudo de todo."
+              name="Liliana (Gloria)"
+              meta="70 años · Dueña de casa"
+              avatarLetter="L"
             />
           </div>
         </div>
