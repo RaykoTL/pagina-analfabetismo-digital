@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import fondoHero from "./assets/fondo-hero (1).jpg";
+import fondoHero from "./assets/fondo-hero.jpg";
 
 // ── FUNCIÓN PARA CARGAR IMÁGENES CORRECTAMENTE EN VITE ──
 const getAssetUrl = (name) => {
@@ -120,44 +120,36 @@ const style = `
 
   /* HERO */
   .hero {
-      min-height: calc(100vh - 64px);
-      display: flex;
-      align-items: center;
-      padding: 5rem 2rem;
-      position: relative;
-      overflow: hidden;
+      isolation: isolate;
   }
-  .hero::before {
-    content:'';
-    position:absolute;
-    inset:0;
-    background: radial-gradient(ellipse 60% 70% at 75% 50%, rgba(61,154,96,0.07) 0%, transparent 65%),
-                radial-gradient(ellipse 40% 40% at 10% 80%, rgba(74,144,226,0.05) 0%, transparent 60%);
-    pointer-events:none;
-  }
+
   .hero-inner {
-    max-width:1200px;
-    margin:0 auto;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:4rem;
-    align-items:center;
-    width:100%;
+      position: relative;
+      z-index: 5;
   }
-  .hero-badge {
-    display:inline-flex;
-    align-items:center;
-    gap:0.5rem;
-    background:rgba(61,154,96,0.12);
-    border:1px solid rgba(61,154,96,0.25);
-    color:var(--verde);
-    font-size:0.78rem;
-    font-weight:600;
-    padding:0.35rem 0.9rem;
-    border-radius:50px;
-    margin-bottom:1.5rem;
-    letter-spacing:0.03em;
+
+  .hero::before {
+      z-index: 1;
   }
+
+  .hero > * {
+      position: relative;
+      z-index: 5;
+  }
+    .hero-badge {
+      display:inline-flex;
+      align-items:center;
+      gap:0.5rem;
+      background:rgba(61,154,96,0.12);
+      border:1px solid rgba(61,154,96,0.25);
+      color:var(--verde);
+      font-size:0.78rem;
+      font-weight:600;
+      padding:0.35rem 0.9rem;
+      border-radius:50px;
+      margin-bottom:1.5rem;
+      letter-spacing:0.03em;
+    }
   .hero h1 {
     font-size:clamp(2.2rem,4vw,3.4rem);
     font-weight:800;
@@ -1043,6 +1035,7 @@ export default function App() {
             </div>
           </div>
           <div className="hero-visual animate-in">
+            {/* <HeroIllustration /> */}
             <HeroIllustration />
           </div>
         </div>
