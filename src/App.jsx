@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import fondoHero from "./assets/fondo-hero (1).jpg";
+import abueloBelen from "./assets/abuelo belen.jpeg";
+import abuelaBelen from "./assets/abuela belen.jpeg";
+
 
 const style = `
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;800&display=swap');
@@ -1150,7 +1153,7 @@ export default function App() {
           <div className="testimonios-grid">
             {/* Francisco */}
             <TestimonioCardExtenso
-              imgSrc={getAssetUrl("abuelo belen.jpeg")}
+              imgSrc={"abuelo belen.jpeg"}
               paragraphs={testimonioFrancisco}
               highlightQuote="Uno siente vergüenza de preguntar, porque parece que todos saben menos tú"
               name="Francisco"
@@ -1160,7 +1163,7 @@ export default function App() {
 
             {/* Liliana */}
             <TestimonioCardExtenso
-              imgSrc={getAssetUrl("abuela belen.jpeg")}
+              imgSrc={"abuela belen.jpeg"}
               paragraphs={testimonioLiliana}
               highlightQuote="Ahora no sé en qué creer. Antes dudaba de pocas cosas, ahora dudo de todo."
               name="Liliana"
