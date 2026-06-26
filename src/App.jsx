@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import fondoHero from "./assets/fondo-hero (1).jpg";
+
 const style = `
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;800&display=swap');
 
@@ -993,8 +994,7 @@ export default function App() {
           backgroundImage: `url(${fondoHero})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          minHeight: "100vh"
+          backgroundRepeat: "no-repeat"
         }}
       >
         <div className="hero-inner">
