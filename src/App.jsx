@@ -125,7 +125,17 @@ const style = `
     padding: 5rem 2rem;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, #f0fdf4 0%, #e8f7ee 40%, #eff6ff 100%);
+
+    background:
+      linear-gradient(
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.55)
+      ),
+      url("https://github.com/RaykoTL/pagina-analfabetismo-digital/blob/main/fondo-hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   .hero::before {
     content:'';
