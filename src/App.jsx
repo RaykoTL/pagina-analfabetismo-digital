@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
+import fondoHero from "./assets/fondo-hero (1).jpg";
+import abueloBelen from "./assets/abuelo belen.jpeg";
+import abuelaBelen from "./assets/abuela belen.jpeg";
 
-// ── FUNCIÓN PARA CARGAR IMÁGENES CORRECTAMENTE EN VITE ──
-const getAssetUrl = (name) => {
-  return new URL(`./assets/${name}`, import.meta.url).href;
-};
 
 const style = `
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;800&display=swap');
@@ -119,13 +118,29 @@ const style = `
 
   /* HERO */
   .hero {
-    min-height: calc(100vh - 64px);
-    display: flex;
-    align-items: center;
-    padding: 5rem 2rem;
     position: relative;
+    min-height: 100vh;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     overflow: hidden;
-    background: linear-gradient(135deg, #f0fdf4 0%, #e8f7ee 40%, #eff6ff 100%);
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    /* Negro con 50% de opacidad */
+    background: rgba(0, 0, 0, 0.5);
+
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
   }
   .hero::before {
     content:'';
@@ -992,7 +1007,17 @@ export default function App() {
       )}
 
       {/* ── HERO ── */}
-      <section className="hero">
+      <section
+        className="hero"
+        style={{
+          backgroundImage: `url(${fondoHero})`
+        }}
+      >
+        <div className="hero-overlay"></div>
+
+        <div className="hero-content">
+          {/* Todo tu contenido actual */}
+        </div>
         <div className="hero-inner">
           <div className="animate-up">
             <div className="hero-badge">
@@ -1146,7 +1171,7 @@ export default function App() {
           <div className="testimonios-grid">
             {/* Francisco */}
             <TestimonioCardExtenso
-              imgSrc={getAssetUrl("abuelo belen.jpeg")}
+              imgSrc={"abuelo belen.jpeg"}
               paragraphs={testimonioFrancisco}
               highlightQuote="Uno siente vergüenza de preguntar, porque parece que todos saben menos tú"
               name="Francisco"
@@ -1156,7 +1181,7 @@ export default function App() {
 
             {/* Liliana */}
             <TestimonioCardExtenso
-              imgSrc={getAssetUrl("abuela belen.jpeg")}
+              imgSrc={"abuela belen.jpeg"}
               paragraphs={testimonioLiliana}
               highlightQuote="Ahora no sé en qué creer. Antes dudaba de pocas cosas, ahora dudo de todo."
               name="Liliana"
