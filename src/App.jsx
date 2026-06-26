@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import fondoHero from "./assets/fondo-hero (1).jpg";
+import fondoHero from "./assets/fondo-hero.jpg";
 
 // ── FUNCIÓN PARA CARGAR IMÁGENES CORRECTAMENTE EN VITE ──
 const getAssetUrl = (name) => {
@@ -989,8 +989,8 @@ export default function App() {
         style={{
           backgroundImage: `
             linear-gradient(
-              rgba(0,0,0,0.55),
-              rgba(0,0,0,0.55)
+              rgba(255,0,0,0.5),
+              rgba(255,0,0,0.5)
             ),
             url(${fondoHero})
           `,
