@@ -1,29 +1,42 @@
 import { useState, useEffect } from "react";
 
-// Importa las imágenes como si fueran módulos de código
-import imgAbuela from './assets/abuela belen.jpeg';
-import imgAbuelo from './assets/abuelo belen.jpeg';
-import imgKampus from './assets/pexels-kampus-8185900.jpg';
-import imgSilver1 from './assets/pexels-silverkblack-36764578.jpg';
-import imgSilver2 from './assets/pexels-silverkblack-36764586.jpg';
-import imgTima from './assets/pexels-tima-miroshnichenko-5591205.jpg';
+// --- COPIAR Y PEGAR DESDE AQUÍ ---
 
-// Ahora las usas en tu estructura sin comillas, directo la variable:
+// Esta función le enseña a Vite cómo resolver correctamente las rutas con espacios en GitHub
+const getAssetUrl = (name) => {
+  return new URL(`./assets/${name}`, import.meta.url).href;
+};
+
 const testimonios = [
   {
     name: "Liliana (Gloria)",
-    imgSrc: imgAbuela, // <--- Fíjate que va sin comillas
+    imgSrc: getAssetUrl("abuela belen.jpeg"),
     avatarLetter: "L",
-    paragraphs: ["..."]
+    paragraphs: [
+      "Uno siente vergüenza de preguntar, porque piensa que para el resto es obvio. A mi edad, quedarse abajo del tren digital es quedarse sola.",
+      "A veces prefiero decir que no me interesa, pero la verdad es que me da miedo bloquear el teléfono o borrar algo importante sin querer."
+    ]
   },
   {
     name: "Francisco",
-    imgSrc: imgAbuelo, // <--- Sin comillas
+    imgSrc: getAssetUrl("abuelo belen.jpeg"),
     avatarLetter: "F",
-    paragraphs: ["..."]
+    paragraphs: [
+      "Todo se volvió un trámite en una pantalla. Ir al banco antes era conversar con alguien; ahora es pelear con una máquina que no me entiende.",
+      "Siento que el mundo avanzó muy rápido y a los de nuestra generación nos dejaron cuidando el pasado, sin darnos las llaves del presente."
+    ]
   }
 ];
 
+// Si usas las imágenes de Pexels en otra parte del código, puedes llamarlas así:
+const imagenesGaleria = {
+  kampus: getAssetUrl("pexels-kampus-8185900.jpg"),
+  silver1: getAssetUrl("pexels-silverkblack-36764578.jpg"),
+  silver2: getAssetUrl("pexels-silverkblack-36764586.jpg"),
+  tima: getAssetUrl("pexels-tima-miroshnichenko-5591205.jpg")
+};
+
+// --- FIN DEL FRAGMENTO ---
 const style = `
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;800&display=swap');
 
