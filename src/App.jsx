@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import fondoHero from "./assets/fondo-hero.jpg";
 
 // ── FUNCIÓN PARA CARGAR IMÁGENES CORRECTAMENTE EN VITE ──
 const getAssetUrl = (name) => {
@@ -119,23 +120,12 @@ const style = `
 
   /* HERO */
   .hero {
-    min-height: calc(100vh - 64px);
-    display: flex;
-    align-items: center;
-    padding: 5rem 2rem;
-    position: relative;
-    overflow: hidden;
-
-    background:
-      linear-gradient(
-        rgba(0,0,0,0.55),
-        rgba(0,0,0,0.55)
-      ),
-      url("url("https://raw.githubusercontent.com/RaykoTL/pagina-analfabetismo-digital/main/src/assets/fondo-hero.jpg")");
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+      min-height: calc(100vh - 64px);
+      display: flex;
+      align-items: center;
+      padding: 5rem 2rem;
+      position: relative;
+      overflow: hidden;
   }
   .hero::before {
     content:'';
@@ -1002,7 +992,21 @@ export default function App() {
       )}
 
       {/* ── HERO ── */}
-      <section className="hero">
+      <section
+        className="hero"
+        style={{
+          backgroundImage: `
+            linear-gradient(
+              rgba(0,0,0,0.55),
+              rgba(0,0,0,0.55)
+            ),
+            url(${fondoHero})
+          `,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat"
+        }}
+      >
         <div className="hero-inner">
           <div className="animate-up">
             <div className="hero-badge">
