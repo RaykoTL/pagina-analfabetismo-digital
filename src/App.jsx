@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import fondoHero from "./assets/fondo-hero (1).jpg";
-import abueloBelen from "./assets/abuelo belen.jpeg";
-import abuelaBelen from "./assets/abuela belen.jpeg";
 
+// ── FUNCIÓN PARA CARGAR IMÁGENES CORRECTAMENTE EN VITE ──
+const getAssetUrl = (name) => {
+  return new URL(`./assets/${name}`, import.meta.url).href;
+};
 
 const style = `
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;800&display=swap');
@@ -124,7 +125,7 @@ const style = `
     padding: 5rem 2rem;
     position: relative;
     overflow: hidden;
-    background: none;
+    background: linear-gradient(135deg, #f0fdf4 0%, #e8f7ee 40%, #eff6ff 100%);
   }
   .hero::before {
     content:'';
@@ -991,15 +992,7 @@ export default function App() {
       )}
 
       {/* ── HERO ── */}
-      <section
-        className="hero"
-        style={{
-          backgroundImage: `url(${fondoHero})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat"
-        }}
-      >
+      <section className="hero">
         <div className="hero-inner">
           <div className="animate-up">
             <div className="hero-badge">
@@ -1153,7 +1146,7 @@ export default function App() {
           <div className="testimonios-grid">
             {/* Francisco */}
             <TestimonioCardExtenso
-              imgSrc={"abuelo belen.jpeg"}
+              imgSrc={getAssetUrl("abuelo belen.jpeg")}
               paragraphs={testimonioFrancisco}
               highlightQuote="Uno siente vergüenza de preguntar, porque parece que todos saben menos tú"
               name="Francisco"
@@ -1163,7 +1156,7 @@ export default function App() {
 
             {/* Liliana */}
             <TestimonioCardExtenso
-              imgSrc={"abuela belen.jpeg"}
+              imgSrc={getAssetUrl("abuela belen.jpeg")}
               paragraphs={testimonioLiliana}
               highlightQuote="Ahora no sé en qué creer. Antes dudaba de pocas cosas, ahora dudo de todo."
               name="Liliana"
