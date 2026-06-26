@@ -1010,7 +1010,16 @@ export default function App() {
       <section
         className="hero"
         style={{
-          backgroundImage: `url(${fondoHero})`
+          backgroundImage: `
+            linear-gradient(
+              rgba(0,0,0,0.45),
+              rgba(0,0,0,0.45)
+            ),
+            url(${fondoHero})
+          `,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat"
         }}
       >
         <div className="hero-overlay"></div>
