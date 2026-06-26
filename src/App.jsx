@@ -1,5 +1,34 @@
 import { useState, useEffect } from "react";
+const testimonios = [
+  {
+    name: "Liliana (Gloria)",
+    highlightQuote: "Ahora no sé en qué creer...",
+    imgSrc: "https://raw.githubusercontent.com/RaykoTL/pagina-analfabetismo-digital/main/src/assets/abuela%20belen.jpeg",
+    avatarLetter: "L",
+    paragraphs: [
+      "Uno siente vergüenza de preguntar, porque piensa que para el resto es obvio. A mi edad, quedarse abajo del tren digital es quedarse sola.",
+      "A veces prefiero decir que no me interesa, pero la verdad es que me da miedo bloquear el teléfono o borrar algo importante sin querer."
+    ]
+  },
+  {
+    name: "Francisco",
+    highlightQuote: "Uno siente vergüenza de preguntar...",
+    imgSrc: "https://raw.githubusercontent.com/RaykoTL/pagina-analfabetismo-digital/main/src/assets/abuelo%20belen.jpeg",
+    avatarLetter: "F",
+    paragraphs: [
+      "Todo se volvió un trámite en una pantalla. Ir al banco antes era conversar con alguien; ahora es pelear con una máquina que no me entiende.",
+      "Siento que el mundo avanzó muy rápido y a los de nuestra generación nos dejaron cuidando el pasado, sin darnos las llaves del presente."
+    ]
+  }
+];
 
+// Si usas las otras imágenes de Pexels en alguna galería o sección, aquí tienes sus variables listas:
+const imagenesGaleria = {
+  kampus: "https://raw.githubusercontent.com/RaykoTL/pagina-analfabetismo-digital/main/src/assets/pexels-kampus-8185900.jpg",
+  silverkblack1: "https://raw.githubusercontent.com/RaykoTL/pagina-analfabetismo-digital/main/src/assets/pexels-silverkblack-36764578.jpg",
+  silverkblack2: "https://raw.githubusercontent.com/RaykoTL/pagina-analfabetismo-digital/main/src/assets/pexels-silverkblack-36764586.jpg",
+  tima: "https://raw.githubusercontent.com/RaykoTL/pagina-analfabetismo-digital/main/src/assets/pexels-tima-miroshnichenko-5591205.jpg"
+};
 const style = `
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;800&display=swap');
 
