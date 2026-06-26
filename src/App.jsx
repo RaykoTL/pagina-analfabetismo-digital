@@ -129,7 +129,7 @@ const style = `
   }
 
   .hero::before {
-      z-index: 1;
+    display: none;
   }
 
   .hero > * {
@@ -983,12 +983,18 @@ export default function App() {
         </div>
       )}
 
-  {/* ── HERO ── */}
-  {/* ── HERO ── */}
+    {/* ── HERO ── */}
+    {/* ── HERO ── */}
   <section
     className="hero"
     style={{
-      backgroundImage: `url(${fondoHero})`,
+      backgroundImage: `
+        linear-gradient(
+          rgba(0,0,0,0.55),
+          rgba(0,0,0,0.55)
+        ),
+        url(${fondoHero})
+      `,
       backgroundSize: "cover",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
@@ -1002,14 +1008,15 @@ export default function App() {
         </div>
 
         <h1 style={{ color: "white" }}>
-          <em style={{ color: "yellow" }}>Conectados:</em> Alfabetización Digital
+          <em style={{ color: "#5CBD7E" }}>Conectados:</em>
+          {" "}Alfabetización Digital
           <br />
           para la Comunidad
         </h1>
 
         <p
           className="hero-desc"
-          style={{ color: "white" }}
+          style={{ color: "rgba(255,255,255,0.9)" }}
         >
           Un proyecto educativo hecho para personas reales en la Región del Maule.
           Aprendemos juntos a usar internet con seguridad, sin tecnicismos, sin miedo.
@@ -1029,13 +1036,14 @@ export default function App() {
           <div>
             <div
               className="hero-stat-num"
-              style={{ color: "white" }}
+              style={{ color: "#5CBD7E" }}
             >
               +1.200
             </div>
+
             <div
               className="hero-stat-label"
-              style={{ color: "white" }}
+              style={{ color: "rgba(255,255,255,0.85)" }}
             >
               personas alcanzadas
               <br />
@@ -1046,13 +1054,14 @@ export default function App() {
           <div>
             <div
               className="hero-stat-num"
-              style={{ color: "white" }}
+              style={{ color: "#5CBD7E" }}
             >
               4
             </div>
+
             <div
               className="hero-stat-label"
-              style={{ color: "white" }}
+              style={{ color: "rgba(255,255,255,0.85)" }}
             >
               plataformas
               <br />
@@ -1063,13 +1072,14 @@ export default function App() {
           <div>
             <div
               className="hero-stat-num"
-              style={{ color: "white" }}
+              style={{ color: "#5CBD7E" }}
             >
               6
             </div>
+
             <div
               className="hero-stat-label"
-              style={{ color: "white" }}
+              style={{ color: "rgba(255,255,255,0.85)" }}
             >
               temas de
               <br />
@@ -1080,14 +1090,8 @@ export default function App() {
       </div>
 
       <div className="hero-visual animate-in">
-        <img
-          src={fondoHero}
-          alt="prueba"
-          style={{
-            width: "300px",
-            border: "5px solid red"
-          }}
-        />
+        {/* <HeroIllustration /> */}
+        <HeroIllustration />
       </div>
     </div>
   </section>
