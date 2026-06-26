@@ -120,36 +120,45 @@ const style = `
 
   /* HERO */
   .hero {
-      isolation: isolate;
+    min-height: calc(100vh - 64px);
+    display: flex;
+    align-items: center;
+    padding: 5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    background: none;
   }
-
-  .hero-inner {
-      position: relative;
-      z-index: 5;
-  }
-
   .hero::before {
-    display: none;
+    content:'';
+    position:absolute;
+    inset:0;
+    background: radial-gradient(ellipse 60% 70% at 75% 50%, rgba(61,154,96,0.07) 0%, transparent 65%),
+                radial-gradient(ellipse 40% 40% at 10% 80%, rgba(74,144,226,0.05) 0%, transparent 60%);
+    pointer-events:none;
   }
-
-  .hero > * {
-      position: relative;
-      z-index: 5;
+  .hero-inner {
+    max-width:1200px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:4rem;
+    align-items:center;
+    width:100%;
   }
-    .hero-badge {
-      display:inline-flex;
-      align-items:center;
-      gap:0.5rem;
-      background:rgba(61,154,96,0.12);
-      border:1px solid rgba(61,154,96,0.25);
-      color:var(--verde);
-      font-size:0.78rem;
-      font-weight:600;
-      padding:0.35rem 0.9rem;
-      border-radius:50px;
-      margin-bottom:1.5rem;
-      letter-spacing:0.03em;
-    }
+  .hero-badge {
+    display:inline-flex;
+    align-items:center;
+    gap:0.5rem;
+    background:rgba(61,154,96,0.12);
+    border:1px solid rgba(61,154,96,0.25);
+    color:var(--verde);
+    font-size:0.78rem;
+    font-weight:600;
+    padding:0.35rem 0.9rem;
+    border-radius:50px;
+    margin-bottom:1.5rem;
+    letter-spacing:0.03em;
+  }
   .hero h1 {
     font-size:clamp(2.2rem,4vw,3.4rem);
     font-weight:800;
@@ -983,118 +992,48 @@ export default function App() {
         </div>
       )}
 
-    {/* ── HERO ── */}
-    {/* ── HERO ── */}
-  <section
-    className="hero"
-    style={{
-      backgroundImage: `
-        linear-gradient(
-          rgba(0,0,0,0.55),
-          rgba(0,0,0,0.55)
-        ),
-        url(${fondoHero})
-      `,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-      minHeight: "100vh"
-    }}
-  >
-    <div className="hero-inner">
-      <div className="animate-up">
-        <div className="hero-badge">
-          🎓 Universidad Autónoma
-        </div>
-
-        <h1 style={{ color: "white" }}>
-          <em style={{ color: "#5CBD7E" }}>Conectados:</em>
-          {" "}Alfabetización Digital
-          <br />
-          para la Comunidad
-        </h1>
-
-        <p
-          className="hero-desc"
-          style={{ color: "rgba(255,255,255,0.9)" }}
-        >
-          Un proyecto educativo hecho para personas reales en la Región del Maule.
-          Aprendemos juntos a usar internet con seguridad, sin tecnicismos, sin miedo.
-        </p>
-
-        <div className="hero-btns">
-          <a href="#temas" className="btn-primary">
-            Aprender ahora {icons.arrowRight}
-          </a>
-
-          <a href="#comunidad" className="btn-secondary">
-            {icons.whatsapp} Unirse a WhatsApp
-          </a>
-        </div>
-
-        <div className="hero-stats">
-          <div>
-            <div
-              className="hero-stat-num"
-              style={{ color: "#5CBD7E" }}
-            >
-              +1.200
+      {/* ── HERO ── */}
+      <section className="hero">
+        <div className="hero-inner">
+          <div className="animate-up">
+            <div className="hero-badge">
+              🎓 Universidad Autónoma
             </div>
-
-            <div
-              className="hero-stat-label"
-              style={{ color: "rgba(255,255,255,0.85)" }}
-            >
-              personas alcanzadas
-              <br />
-              en el Maule
+            <h1>
+              <em>Conectados:</em> Alfabetización Digital<br />para la Comunidad
+            </h1>
+            <p className="hero-desc">
+              Un proyecto educativo hecho para personas reales en la Región del Maule.
+              Aprendemos juntos a usar internet con seguridad, sin tecnicismos, sin miedo.
+            </p>
+            <div className="hero-btns">
+              <a href="#temas" className="btn-primary">
+                Aprender ahora {icons.arrowRight}
+              </a>
+              <a href="#comunidad" className="btn-secondary">
+                {icons.whatsapp} Unirse a WhatsApp
+              </a>
+            </div>
+            <div className="hero-stats">
+              <div>
+                <div className="hero-stat-num">+1.200</div>
+                <div className="hero-stat-label">personas alcanzadas<br/>en el Maule</div>
+              </div>
+              <div>
+                <div className="hero-stat-num">4</div>
+                <div className="hero-stat-label">plataformas<br/>transmedia</div>
+              </div>
+              <div>
+                <div className="hero-stat-num">6</div>
+                <div className="hero-stat-label">temas de<br/>alfabetización</div>
+              </div>
             </div>
           </div>
-
-          <div>
-            <div
-              className="hero-stat-num"
-              style={{ color: "#5CBD7E" }}
-            >
-              4
-            </div>
-
-            <div
-              className="hero-stat-label"
-              style={{ color: "rgba(255,255,255,0.85)" }}
-            >
-              plataformas
-              <br />
-              transmedia
-            </div>
-          </div>
-
-          <div>
-            <div
-              className="hero-stat-num"
-              style={{ color: "#5CBD7E" }}
-            >
-              6
-            </div>
-
-            <div
-              className="hero-stat-label"
-              style={{ color: "rgba(255,255,255,0.85)" }}
-            >
-              temas de
-              <br />
-              alfabetización
-            </div>
+          <div className="hero-visual animate-in">
+            <HeroIllustration />
           </div>
         </div>
-      </div>
-
-      <div className="hero-visual animate-in">
-        {/* <HeroIllustration /> */}
-        <HeroIllustration />
-      </div>
-    </div>
-  </section>
+      </section>
 
       {/* ── ¿POR QUÉ? ── */}
       <section className="section section-alt">
