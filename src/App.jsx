@@ -1317,3 +1317,5 @@ export default function App() {
     </>
   );
 }
+
+<img src={testimonio.imgSrc} alt={testimonio.name} />
